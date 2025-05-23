@@ -1,9 +1,9 @@
-package com.lesvivienda.lesvivienda;
+package com.lesvivienda;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = "com.lesvivienda")
 public class LesviviendaApplication {
 
 	public static void main(String[] args) {
