@@ -35,7 +35,12 @@ public class SecurityConfig {
             .cors(cors -> cors.configurationSource(corsConfigurationSource()))
             .csrf(csrf -> csrf.disable())
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/auth/register", "/auth/login", "/auth/test").permitAll()
+                .requestMatchers(
+                    "/auth/register",
+                    "/auth/login",
+                    "/auth/test",
+                    "/propuestas/**" // ✅ Permitimos acceso público a /propuestas
+                ).permitAll()
                 .anyRequest().authenticated()
             )
             .httpBasic(Customizer.withDefaults())
@@ -68,7 +73,6 @@ public class SecurityConfig {
         return authProvider;
     }
 
-    // Cambié el parámetro a AuthenticationConfiguration (no HttpSecurity)
     @Bean
     public AuthenticationManager authenticationManager(AuthenticationConfiguration authConfig) throws Exception {
         return authConfig.getAuthenticationManager();
