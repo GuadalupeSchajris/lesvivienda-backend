@@ -18,7 +18,7 @@ public class Propuesta {
     @Column(nullable = false, columnDefinition = "TEXT")
     private String propuesta;
 
-    // Getters y setters
+    
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
 

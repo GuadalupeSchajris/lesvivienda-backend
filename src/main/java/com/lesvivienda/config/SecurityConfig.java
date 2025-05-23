@@ -39,12 +39,12 @@ public class SecurityConfig {
                     "/auth/register",
                     "/auth/login",
                     "/auth/test",
-                    "/propuestas/**",           // público
-                    "/encuestas/activas",       // público (ver encuestas)
-                    "/encuestas/*/votar"        // público (votar en encuesta)
+                    "/propuestas/**",           
+                    "/encuestas/activas",       
+                    "/encuestas/*/votar"        
                 ).permitAll()
                 .requestMatchers(
-                    "/encuestas"                // autenticado para crear encuestas
+                    "/encuestas"               
                 ).authenticated()
                 .anyRequest().authenticated()
             )
