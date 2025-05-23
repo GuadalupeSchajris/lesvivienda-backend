@@ -92,7 +92,7 @@ public class User {
         this.role = role;
     }
 
-    // toString sin mostrar password por seguridad
+   
     @Override
     public String toString() {
         return "User{" +
@@ -103,7 +103,7 @@ public class User {
             '}';
     }
 
-    // Builder pattern actualizado
+    
     public static Builder builder() {
         return new Builder();
     }

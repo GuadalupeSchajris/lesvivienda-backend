@@ -17,7 +17,6 @@ public class PropuestaController {
 
     private final PropuestaService propuestaService;
 
-    // Constructor para inyección de dependencias
     public PropuestaController(PropuestaService propuestaService) {
         this.propuestaService = propuestaService;
     }
