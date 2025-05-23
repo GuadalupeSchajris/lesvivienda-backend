@@ -39,8 +39,13 @@ public class SecurityConfig {
                     "/auth/register",
                     "/auth/login",
                     "/auth/test",
-                    "/propuestas/**" // ✅ Permitimos acceso público a /propuestas
+                    "/propuestas/**",           // público
+                    "/encuestas/activas",       // público (ver encuestas)
+                    "/encuestas/*/votar"        // público (votar en encuesta)
                 ).permitAll()
+                .requestMatchers(
+                    "/encuestas"                // autenticado para crear encuestas
+                ).authenticated()
                 .anyRequest().authenticated()
             )
             .httpBasic(Customizer.withDefaults())
@@ -51,7 +56,7 @@ public class SecurityConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOrigins(List.of("http://localhost:3000", "http://localhost:5173"));
+        configuration.setAllowedOrigins(List.of("http://localhost:3000", "http://localhost:5174", "http://localhost:5173"));
         configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         configuration.setAllowedHeaders(List.of("*"));
         configuration.setAllowCredentials(true);
