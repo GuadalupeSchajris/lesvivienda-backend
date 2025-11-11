@@ -1,6 +1,7 @@
 package com.lesvivienda.controller;
 
 import java.util.List;
+import java.util.UUID;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -35,6 +36,7 @@ public class EncuestaController {
         Encuesta encuesta = new Encuesta();
         encuesta.setTitulo(dto.getTitulo());
         encuesta.setOpciones(dto.getOpciones());
+        // La fecha límite se puede setear por defecto o agregar al DTO después
 
         Encuesta creada = encuestaService.crearEncuesta(encuesta);
 
@@ -51,7 +53,7 @@ public class EncuestaController {
     }
 
     @PostMapping("/{id}/votar")
-    public ResponseEntity<EncuestaResponseDTO> votar(@PathVariable Long id, @Valid @RequestBody VotoRequestDTO votoRequest) {
+    public ResponseEntity<EncuestaResponseDTO> votar(@PathVariable UUID id, @Valid @RequestBody VotoRequestDTO votoRequest) {
         Encuesta encuesta = encuestaService.votar(id, votoRequest.getOpcionIndex());
         return ResponseEntity.ok(mapToResponseDTO(encuesta));
     }
@@ -69,6 +71,4 @@ public class EncuestaController {
         dto.setVotos(votosList);
         return dto;
     }
-
 }
-

@@ -1,21 +1,22 @@
 package com.lesvivienda.dto;
 
 import java.util.List;
+import java.util.UUID; 
 
 public class EncuestaResponseDTO {
 
-    private Long id;
+    private UUID id; 
     private String titulo;
     private List<String> opciones;
     private List<Integer> votos;
 
     public EncuestaResponseDTO() {}
 
-    public Long getId() {
+    public UUID getId() { 
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(UUID id) { 
         this.id = id;
     }
 
