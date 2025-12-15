@@ -17,7 +17,7 @@ public class Encuesta {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String titulo;  // Antes "pregunta"
+    private String titulo;  
 
     @ElementCollection
     private List<String> opciones;

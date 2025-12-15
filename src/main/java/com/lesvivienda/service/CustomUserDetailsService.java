@@ -36,7 +36,7 @@ public UserDetails loadUserByUsername(String email) throws UsernameNotFoundExcep
 
 
     private Collection<? extends GrantedAuthority> getAuthorities(String role) {
-        // Aquí defines el rol como autoridad, por ejemplo "ROLE_USER"
+       
         return Collections.singletonList(new SimpleGrantedAuthority("ROLE_" + role.toUpperCase()));
     }
 }
